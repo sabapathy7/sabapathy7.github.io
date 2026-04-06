@@ -87,29 +87,25 @@ body:hover .cursor-glow { opacity: 1; }
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ===== Conference Spotlight ===== */
-.conf-spotlight { padding: 80px 0 0; }
-.spotlight-banner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; background: linear-gradient(135deg, rgba(240, 81, 56, 0.06), rgba(0, 113, 227, 0.06)); border: 1px solid rgba(240, 81, 56, 0.15); border-radius: 20px; padding: 36px; position: relative; overflow: hidden; }
-.spotlight-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-3); }
-.spotlight-video .video-wrapper { box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5); }
-.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); }
-.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.spotlight-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 600; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
-.spotlight-label i { font-size: 0.7rem; }
-.spotlight-info h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 700; line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.5px; }
-.spotlight-info p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px; }
-.spotlight-info strong { color: var(--text-primary); }
-.spotlight-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.spotlight-tags span { padding: 4px 12px; background: rgba(240, 81, 56, 0.1); border: 1px solid rgba(240, 81, 56, 0.2); border-radius: 6px; font-size: 0.72rem; font-weight: 600; color: var(--accent-light); font-family: var(--font-mono); }
-
-/* ===== About ===== */
-.about-content { max-width: 720px; }
-.about-lead { font-size: 1.15rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 12px; }
+/* ===== About + Spotlight Side-by-Side ===== */
+.as-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.as-about .section-title { margin-bottom: 20px; }
+.about-lead { font-size: 1.1rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 12px; }
 .about-lead strong, .about-sub strong { color: var(--text-primary); font-weight: 600; }
 .about-sub { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px; }
-.about-quick { display: flex; flex-wrap: wrap; gap: 20px; }
-.about-quick span { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
+.about-quick { display: flex; flex-wrap: wrap; gap: 16px; }
+.about-quick span { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); }
 .about-quick i { color: var(--accent); font-size: 0.75rem; }
+
+.as-spotlight { background: linear-gradient(135deg, rgba(240, 81, 56, 0.05), rgba(0, 113, 227, 0.05)); border: 1px solid rgba(240, 81, 56, 0.15); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; }
+.as-spotlight::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-3); }
+.spotlight-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+.spotlight-label i { font-size: 0.65rem; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); margin-bottom: 14px; }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.spotlight-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+.spotlight-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.spotlight-tags span { padding: 3px 10px; background: rgba(240, 81, 56, 0.1); border: 1px solid rgba(240, 81, 56, 0.2); border-radius: 6px; font-size: 0.68rem; font-weight: 600; color: var(--accent-light); font-family: var(--font-mono); }
 
 /* ===== Milestones ===== */
 .milestones-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 36px; font-weight: 500; }
@@ -181,7 +177,7 @@ body:hover .cursor-glow { opacity: 1; }
 
 /* ===== Community ===== */
 .community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.community-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.4s; position: relative; }
+.community-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.4s; position: relative; text-decoration: none; display: block; }
 .community-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25); }
 .community-card.featured { border-color: rgba(240, 81, 56, 0.3); background: linear-gradient(135deg, rgba(240, 81, 56, 0.05), var(--bg-card)); }
 .community-badge { position: absolute; top: 16px; right: 16px; padding: 3px 10px; background: var(--gradient-1); border-radius: 4px; font-size: 0.65rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -228,7 +224,7 @@ body:hover .cursor-glow { opacity: 1; }
   .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-  .spotlight-banner { grid-template-columns: 1fr; padding: 24px; }
+  .as-grid { grid-template-columns: 1fr; }
   .ms-track { grid-template-columns: repeat(2, 1fr); }
   .exp-card { grid-template-columns: 1fr; gap: 12px; }
   .exp-logo-wrap { flex-direction: row; align-items: center; }
