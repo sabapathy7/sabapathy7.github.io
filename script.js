@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== Cursor Glow Effect =====
+  // ===== Cursor Glow =====
   const glow = document.getElementById('cursorGlow');
   document.addEventListener('mousemove', (e) => {
     requestAnimationFrame(() => {
@@ -11,12 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== Navbar Scroll =====
   const navbar = document.getElementById('navbar');
-  const sections = document.querySelectorAll('.section');
+  const sections = document.querySelectorAll('.section, .conf-spotlight');
   const navLinks = document.querySelectorAll('.nav-links a');
 
   const onScroll = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
-
     let current = '';
     sections.forEach(section => {
       const top = section.offsetTop - 120;
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.toggle('open');
     navLinksEl.classList.toggle('open');
   });
-
   navLinksEl.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navToggle.classList.remove('open');
@@ -45,38 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== Scroll Reveal =====
-  const revealElements = document.querySelectorAll('.reveal');
-
+  // ===== Scroll Reveal with staggered delay =====
   const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        const delay = entry.target.getAttribute('data-delay');
+        const ms = delay ? parseInt(delay) * 120 : 0;
+        setTimeout(() => entry.target.classList.add('visible'), ms);
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ===== Skill Bar Animation =====
-  const skillFills = document.querySelectorAll('.skill-fill');
-
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const width = entry.target.getAttribute('data-width');
-        entry.target.style.width = width + '%';
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  skillFills.forEach(el => skillObserver.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // ===== Counter Animation =====
-  const counters = document.querySelectorAll('.stat-number');
-
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -87,56 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
 
-  counters.forEach(el => counterObserver.observe(el));
+  document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
 
   function animateCounter(el, target) {
     let current = 0;
-    const duration = 1500;
-    const step = target / (duration / 16);
-
+    const step = target / (1500 / 16);
     const tick = () => {
       current += step;
-      if (current >= target) {
-        el.textContent = target;
-        return;
-      }
+      if (current >= target) { el.textContent = target; return; }
       el.textContent = Math.floor(current);
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }
 
-  // ===== Hero Floating Particles =====
+  // ===== Hero Particles =====
   const particlesContainer = document.getElementById('heroParticles');
-  const particleCount = 30;
-
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
     const size = Math.random() * 4 + 2;
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const delay = Math.random() * 6;
-    const duration = Math.random() * 10 + 10;
-    const opacity = Math.random() * 0.3 + 0.05;
-
-    Object.assign(particle.style, {
-      position: 'absolute',
-      width: size + 'px',
-      height: size + 'px',
-      borderRadius: '50%',
+    Object.assign(p.style, {
+      position: 'absolute', width: size + 'px', height: size + 'px', borderRadius: '50%',
       background: Math.random() > 0.5 ? '#f05138' : '#0071e3',
-      left: x + '%',
-      top: y + '%',
-      opacity: opacity,
-      animation: `float ${duration}s ${delay}s infinite ease-in-out`,
+      left: Math.random() * 100 + '%', top: Math.random() * 100 + '%',
+      opacity: Math.random() * 0.3 + 0.05,
+      animation: `float ${Math.random() * 10 + 10}s ${Math.random() * 6}s infinite ease-in-out`,
       pointerEvents: 'none'
     });
-
-    particlesContainer.appendChild(particle);
+    particlesContainer.appendChild(p);
   }
 
-  const style = document.createElement('style');
-  style.textContent = `
+  const floatStyle = document.createElement('style');
+  floatStyle.textContent = `
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
       25% { transform: translate(20px, -30px) scale(1.1); }
@@ -144,47 +107,53 @@ document.addEventListener('DOMContentLoaded', () => {
       75% { transform: translate(25px, -20px) scale(1.05); }
     }
   `;
-  document.head.appendChild(style);
+  document.head.appendChild(floatStyle);
 
   // ===== Tilt Effect on Cards =====
-  document.querySelectorAll('.project-card, .community-card, .social-card').forEach(card => {
+  document.querySelectorAll('.community-card, .social-card, .ms-card, .talk-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / centerY * -3;
-      const rotateY = (x - centerX) / centerX * 3;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rotateX = (y - 0.5) * -6;
+      const rotateY = (x - 0.5) * 6;
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
 
-  // ===== Typing Effect for Hero Title =====
+  // ===== Typing Effect =====
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle) {
     const text = heroTitle.textContent;
     heroTitle.textContent = '';
     heroTitle.style.borderRight = '2px solid var(--accent)';
-
     let i = 0;
     const type = () => {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 60);
-      } else {
-        setTimeout(() => {
-          heroTitle.style.borderRight = 'none';
-        }, 1500);
-      }
+      if (i < text.length) { heroTitle.textContent += text.charAt(i); i++; setTimeout(type, 60); }
+      else { setTimeout(() => { heroTitle.style.borderRight = 'none'; }, 1500); }
     };
-
     setTimeout(type, 800);
   }
+
+  // ===== Chip Tooltips =====
+  const tooltip = document.getElementById('chipTooltip');
+  document.querySelectorAll('.chip[data-tip]').forEach(chip => {
+    chip.addEventListener('mouseenter', (e) => {
+      tooltip.textContent = chip.getAttribute('data-tip');
+      tooltip.classList.add('show');
+    });
+    chip.addEventListener('mousemove', (e) => {
+      tooltip.style.left = e.clientX + 12 + 'px';
+      tooltip.style.top = e.clientY - 36 + 'px';
+    });
+    chip.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('show');
+    });
+    chip.addEventListener('click', () => {
+      chip.style.transform = 'translateY(-3px) scale(1.05)';
+      setTimeout(() => { chip.style.transform = ''; }, 300);
+    });
+  });
 
 });
