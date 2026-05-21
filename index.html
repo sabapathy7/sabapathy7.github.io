@@ -4,516 +4,213 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kanagasabapathy Rajkumar — Lead iOS Developer</title>
-  <meta name="description" content="Lead iOS Developer with 12+ years of experience. Conference speaker, meetup co-organizer, and Swift community advocate.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-swift">&#xF8FF;</span>
-        <span class="logo-text">Saba</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#milestones">2025</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#talks">Talks</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Saba</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="btn-pdf" onclick="window.print()">&#8595; Download PDF</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-particles" id="heroParticles"></div>
-    <div class="hero-split">
-      <div class="hero-content">
-        <div class="hero-badge animate-in">
-          <span class="badge-dot"></span>
-          Open to new opportunities
-        </div>
-        <h1 class="hero-name animate-in delay-1">
-          <span class="line">Kanagasabapathy</span>
-          <span class="line accent">Rajkumar</span>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="badge">Open to new opportunities</span>
+        <h1 class="hero-name">
+          <span>Kanagasabapathy</span>
+          <span class="accent">Rajkumar</span>
         </h1>
-        <p class="hero-title animate-in delay-2">Lead iOS Developer</p>
-        <p class="hero-subtitle animate-in delay-3">
-          12+ years crafting exceptional iOS experiences &bull;
-          Conference Speaker &bull; Community Builder
-        </p>
-        <div class="hero-cta animate-in delay-4">
-          <a href="#contact" class="btn btn-primary">
-            <span>Get in Touch</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="#talks" class="btn btn-outline">
-            <span>View Talks</span>
-          </a>
-        </div>
-        <div class="hero-stats animate-in delay-5">
-          <div class="stat">
-            <span class="stat-number" data-count="12">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Years iOS</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-count="8">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Talks Given</span>
-          </div>
+        <p class="hero-title">Lead iOS Developer</p>
+        <p class="hero-sub">12+ years crafting exceptional iOS experiences &bull; Conference Speaker &bull; Community Builder</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Get in Touch &rarr;</a>
+          <a href="#talks" class="btn-ghost">View Talks</a>
         </div>
       </div>
-      <div class="hero-featured animate-in delay-3">
-        <div class="hf-card">
-          <div class="hf-label">
-            <i class="fas fa-star"></i> Featured — Do-iOS Conference, Netherlands
+      <div class="hero-right">
+        <div class="featured-card">
+          <div class="featured-label">&#9733; Featured &mdash; Do-iOS Conference, Netherlands</div>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/q-Y44dh6sTo" title="Swift Concurrency in 6.2: Patterns &amp; Pitfalls" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/q-Y44dh6sTo"
-              title="Swift Concurrency in 6.2 — Do-iOS Conference"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <h3 class="hf-title">Swift Concurrency in 6.2: Patterns & Pitfalls</h3>
-          <div class="hf-tags">
-            <span>Swift 6.2</span>
-            <span>Concurrency</span>
-            <span>Actors</span>
-            <span>Sendable</span>
+          <p class="featured-title">Swift Concurrency in 6.2: Patterns &amp; Pitfalls</p>
+          <div class="featured-tags">
+            <span class="chip">Swift 6.2</span>
+            <span class="chip">Concurrency</span>
+            <span class="chip">Actors</span>
+            <span class="chip">Sendable</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="hero-scroll">
-      <a href="#about">
-        <div class="scroll-indicator">
-          <div class="scroll-dot"></div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="about section" id="about">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">01.</span> About Me
-      </h2>
-      <div class="about-content reveal">
-        <p class="about-lead">
-          Lead iOS Developer with <strong>12+ years</strong> in the industry,
-          building enterprise apps serving millions across
-          <strong>banking</strong>, <strong>healthcare</strong>, and <strong>IoT/BLE</strong>.
-        </p>
-        <p class="about-sub">
-          International <strong>conference speaker</strong>, <strong>SwiftBLR co-organizer</strong>,
-          and podcast host — passionate about Swift Concurrency, clean architecture,
-          and mentoring developers.
-        </p>
-        <div class="about-quick">
-          <span><i class="fas fa-map-marker-alt"></i> Bengaluru, India</span>
-          <span><i class="fas fa-building"></i> NTT DATA</span>
-          <span><i class="fas fa-graduation-cap"></i> B.Tech (ECE), Kalasalingam University</span>
-        </div>
+    <div class="stats-row">
+      <div class="stat">
+        <div><span class="stat-number">12</span><span class="stat-plus">+</span></div>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat">
+        <div><span class="stat-number">10</span><span class="stat-plus">+</span></div>
+        <p>Years iOS</p>
+      </div>
+      <div class="stat">
+        <div><span class="stat-number">8</span><span class="stat-plus">+</span></div>
+        <p>Talks Given</p>
       </div>
     </div>
   </section>
 
-  <section class="milestones section" id="milestones">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">02.</span> 2025 Year in Review
-      </h2>
-      <p class="milestones-subtitle reveal">3 major firsts. Multiple milestones. 1 incredible year.</p>
-      <div class="ms-track">
-        <div class="ms-card reveal" data-delay="0">
-          <div class="ms-emoji">&#9992;&#65039;</div>
-          <div class="ms-content">
-            <h3>First International Conference</h3>
-            <p>Do-iOS, Amsterdam</p>
+  <!-- CONTENT -->
+  <section class="content-grid" id="about">
+    <div class="content-left">
+
+      <div class="block">
+        <h2 class="block-title">About</h2>
+        <p>Lead iOS Developer with 12+ years building enterprise apps across banking, healthcare, and IoT/BLE. International conference speaker, SwiftBLR co-organizer, and SwiftPublished podcast host &mdash; passionate about Swift Concurrency, clean architecture, and mentoring developers.</p>
+      </div>
+
+      <div class="block" id="experience">
+        <h2 class="block-title">Experience</h2>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-role">Lead iOS Developer &mdash; NTT DATA</span>
+              <span class="exp-date">2024 &ndash; Present</span>
+            </div>
+            <p class="exp-desc">Enterprise banking apps serving millions &mdash; reusable Swift Packages, offline-first Core Data, TDD with XCTest, and mentoring teams.</p>
+            <div class="exp-chips">
+              <span class="chip sm">Swift</span><span class="chip sm">UIKit</span><span class="chip sm">XCTest</span><span class="chip sm">SPM</span><span class="chip sm">Core Data</span>
+            </div>
           </div>
-          <div class="ms-glow"></div>
-        </div>
-        <div class="ms-card reveal" data-delay="1">
-          <div class="ms-emoji">&#127760;</div>
-          <div class="ms-content">
-            <h3>First International Webinar</h3>
-            <p>Swift Cairo Community</p>
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-role">Senior iOS Developer &mdash; Tech Mahindra</span>
+              <span class="exp-date">2018 &ndash; 2024</span>
+            </div>
+            <p class="exp-desc">Real-time BLE pipelines for IoT medical devices &mdash; reactive SwiftUI + Combine, reusable SDK modules via SPM.</p>
+            <div class="exp-chips">
+              <span class="chip sm">SwiftUI</span><span class="chip sm">Combine</span><span class="chip sm">CoreBluetooth</span><span class="chip sm">SPM</span>
+            </div>
           </div>
-          <div class="ms-glow"></div>
-        </div>
-        <div class="ms-card reveal" data-delay="2">
-          <div class="ms-emoji">&#127908;</div>
-          <div class="ms-content">
-            <h3>First Podcast Studio</h3>
-            <p>Swift Published</p>
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-role">Software Engineer &mdash; Farshore Partners</span>
+              <span class="exp-date">2014 &ndash; 2018</span>
+            </div>
+            <p class="exp-desc">Led Swift migration from Objective-C &mdash; restaurant apps with MapKit, Core Data, and custom BezierPath UI.</p>
+            <div class="exp-chips">
+              <span class="chip sm">Swift</span><span class="chip sm">Objective-C</span><span class="chip sm">UIKit</span><span class="chip sm">MapKit</span>
+            </div>
           </div>
-          <div class="ms-glow"></div>
-        </div>
-        <div class="ms-card reveal" data-delay="3">
-          <div class="ms-emoji">&#129302;</div>
-          <div class="ms-content">
-            <h3>AI Cursor Workshop</h3>
-            <p>SSN College, IBM &amp; AI Geeks Chennai</p>
-          </div>
-          <div class="ms-glow"></div>
-        </div>
-        <div class="ms-card reveal" data-delay="4">
-          <div class="ms-emoji">&#128101;</div>
-          <div class="ms-content">
-            <h3>Organized Online Meetups</h3>
-            <p>Swift Bengaluru</p>
-          </div>
-          <div class="ms-glow"></div>
         </div>
       </div>
+
+    </div>
+    <div class="content-right">
+
+      <div class="block" id="skills">
+        <h2 class="block-title">Skills</h2>
+        <div class="skills-wrap">
+          <span class="chip">Swift</span>
+          <span class="chip">SwiftUI</span>
+          <span class="chip">UIKit</span>
+          <span class="chip">Objective-C</span>
+          <span class="chip">Combine</span>
+          <span class="chip">CoreBluetooth</span>
+          <span class="chip">CoreData</span>
+          <span class="chip">AVFoundation</span>
+          <span class="chip">MapKit</span>
+          <span class="chip">CoreAnimation</span>
+          <span class="chip">MVVM</span>
+          <span class="chip">VIPER</span>
+          <span class="chip">TCA</span>
+          <span class="chip">SOLID</span>
+          <span class="chip">XCTest</span>
+          <span class="chip">Swift Testing</span>
+          <span class="chip">TDD</span>
+          <span class="chip">SPM</span>
+          <span class="chip">XCFramework</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Firebase</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">URLSession</span>
+          <span class="chip">JIRA</span>
+        </div>
+      </div>
+
+      <div class="block" id="talks">
+        <h2 class="block-title">Selected Talks</h2>
+        <ul class="talks-list">
+          <li>
+            <span class="talk-title">Swift Concurrency 6.2: Patterns &amp; Pitfalls</span>
+            <span class="talk-venue">Do-iOS Conference &mdash; Netherlands, 2026</span>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/posts/sabapathy7_cursoride-iosdevelopment-ai-activity-7384453976500498433-u6xP" target="_blank" rel="noopener">
+              <span class="talk-title">Research &rarr; iOS Code &rarr; Pull Request</span>
+            </a>
+            <span class="talk-venue">SSN College / AI Geeks Meetup &mdash; Chennai, 2025</span>
+          </li>
+          <li>
+            <a href="https://youtu.be/NdyhdtKhUlc?si=wyMsdVBTqM5tEQTN" target="_blank" rel="noopener">
+              <span class="talk-title">AI-Driven Pull Requests: Smarter Reviews, Faster Merges</span>
+            </a>
+            <span class="talk-venue">Apple Developers Club &mdash; Online, Apr 2025</span>
+          </li>
+          <li>
+            <span class="talk-title">AI in Development &mdash; Hype, Myth, or Actually Works?</span>
+            <span class="talk-venue">Swift Devs @ Motive &mdash; Bengaluru, May 2025</span>
+          </li>
+          <li>
+            <a href="https://youtu.be/9MMzZncgzEE?si=nn_NnYGAWc4HOmXD" target="_blank" rel="noopener">
+              <span class="talk-title">A Guide to Swift Concurrency</span>
+            </a>
+            <span class="talk-venue">SwiftBLR / SwiftSurat Online &mdash; 2024&ndash;2025</span>
+          </li>
+          <li>
+            <span class="talk-title">Getting Started with TCA</span>
+            <span class="talk-venue">SwiftBLR &mdash; Bengaluru, Sep 2023</span>
+          </li>
+        </ul>
+        <a href="https://sessionize.com/sabapathy7" class="link-more" target="_blank" rel="noopener">View all on Sessionize &rarr;</a>
+      </div>
+
     </div>
   </section>
 
-  <section class="skills section" id="skills">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">03.</span> Skills & Expertise
-      </h2>
-      <div class="skills-cloud reveal">
-        <button class="chip chip-hero" data-tip="Primary language — 10+ years"><i class="fab fa-swift"></i> Swift</button>
-        <button class="chip chip-hero" data-tip="async/await, actors, Sendable"><i class="fas fa-bolt"></i> Modern Concurrency</button>
-        <button class="chip chip-hero" data-tip="UI framework — declarative"><i class="fas fa-wand-magic-sparkles"></i> SwiftUI</button>
-        <button class="chip chip-hero" data-tip="UI framework — imperative"><i class="fas fa-layer-group"></i> UIKit</button>
-        <button class="chip chip-lg" data-tip="Legacy language"><i class="fas fa-code"></i> Objective-C</button>
-        <button class="chip chip-lg" data-tip="Reactive streams"><i class="fas fa-arrows-spin"></i> Combine</button>
-        <button class="chip chip-lg" data-tip="IoT device communication"><i class="fab fa-bluetooth-b"></i> CoreBluetooth</button>
-        <button class="chip chip-lg" data-tip="Persistent storage"><i class="fas fa-database"></i> CoreData</button>
-        <button class="chip" data-tip="Location & maps"><i class="fas fa-map"></i> MapKit</button>
-        <button class="chip" data-tip="Animations"><i class="fas fa-film"></i> CoreAnimation</button>
-        <button class="chip" data-tip="Audio & video"><i class="fas fa-play"></i> AVFoundation</button>
-        <button class="chip chip-arch" data-tip="Architecture pattern"><i class="fas fa-sitemap"></i> MVVM</button>
-        <button class="chip chip-arch" data-tip="Architecture pattern"><i class="fas fa-sitemap"></i> VIPER</button>
-        <button class="chip chip-arch" data-tip="The Composable Architecture"><i class="fas fa-puzzle-piece"></i> TCA</button>
-        <button class="chip chip-arch" data-tip="Design principles"><i class="fas fa-gem"></i> SOLID</button>
-        <button class="chip chip-test" data-tip="Apple testing framework"><i class="fas fa-vial"></i> XCTest</button>
-        <button class="chip chip-test" data-tip="Modern testing"><i class="fas fa-flask"></i> Swift Testing</button>
-        <button class="chip chip-test" data-tip="Test-driven development"><i class="fas fa-shield-halved"></i> TDD</button>
-        <button class="chip" data-tip="Networking"><i class="fas fa-globe"></i> URLSession</button>
-        <button class="chip" data-tip="Networking library"><i class="fas fa-wifi"></i> Alamofire</button>
-        <button class="chip" data-tip="API integration"><i class="fas fa-server"></i> REST APIs</button>
-        <button class="chip chip-tool" data-tip="Version control"><i class="fab fa-git-alt"></i> Git</button>
-        <button class="chip chip-tool" data-tip="CI/CD"><i class="fab fa-github"></i> GitHub Actions</button>
-        <button class="chip chip-tool" data-tip="Package manager"><i class="fas fa-cube"></i> SPM</button>
-        <button class="chip chip-tool" data-tip="Binary framework"><i class="fas fa-box"></i> XCFramework</button>
-        <button class="chip chip-tool" data-tip="Analytics"><i class="fas fa-fire"></i> Firebase</button>
-        <button class="chip chip-tool" data-tip="Project management"><i class="fas fa-columns"></i> JIRA</button>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p class="footer-name">Kanagasabapathy Rajkumar</p>
+        <p class="footer-role">Lead iOS Developer &bull; Bengaluru, India</p>
+        <p class="footer-community">SwiftBLR Co-organizer &bull; SwiftPublished Podcast Host</p>
       </div>
-    </div>
-  </section>
-
-  <section class="experience section" id="experience">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">04.</span> Experience
-      </h2>
-      <div class="exp-cards">
-        <div class="exp-card exp-current reveal">
-          <div class="exp-logo-wrap">
-            <img src="img/nttdata-logo.svg" alt="NTT DATA" class="exp-logo">
-            <div class="exp-logo-fallback" style="display:none">N</div>
-            <span class="exp-date">2024 — Present</span>
-            <span class="exp-badge-current">Current</span>
-          </div>
-          <div class="exp-body">
-            <h3>Lead iOS Developer <span class="exp-at">@ NTT DATA</span></h3>
-            <p>Architecting enterprise banking apps serving millions — reusable UI libraries, Swift Packages, TDD with XCTest, and mentoring across teams.</p>
-            <div class="exp-tags">
-              <span>Swift</span><span>UIKit</span><span>XCTest</span><span>SPM</span><span>Bitbucket</span>
-            </div>
-          </div>
-        </div>
-        <div class="exp-card reveal">
-          <div class="exp-logo-wrap">
-            <img src="img/techmahindra-logo.webp" alt="Tech Mahindra" class="exp-logo">
-            <div class="exp-logo-fallback" style="display:none">TM</div>
-            <span class="exp-date">2018 — 2024</span>
-          </div>
-          <div class="exp-body">
-            <h3>Senior iOS Developer <span class="exp-at">@ Tech Mahindra</span></h3>
-            <p>Built real-time BLE data pipelines for IoT medical devices — reactive SwiftUI + Combine architectures with reusable SDK modules via SPM.</p>
-            <div class="exp-tags">
-              <span>Swift</span><span>SwiftUI</span><span>Combine</span><span>CoreBluetooth</span><span>SPM</span>
-            </div>
-          </div>
-        </div>
-        <div class="exp-card reveal">
-          <div class="exp-logo-wrap">
-            <img src="img/farshore-logo.png" alt="Farshore Partners" class="exp-logo">
-            <div class="exp-logo-fallback" style="display:none">FS</div>
-            <span class="exp-date">2014 — 2018</span>
-          </div>
-          <div class="exp-body">
-            <h3>Software Engineer <span class="exp-at">@ Farshore Partners</span></h3>
-            <p>Transitioned from Objective-C to Swift building restaurant apps — MapKit, Core Data, and custom drawing with BezierPath.</p>
-            <div class="exp-tags">
-              <span>Swift</span><span>Objective-C</span><span>UIKit</span><span>MapKit</span><span>CoreData</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="talks section" id="talks">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">05.</span> Talks & Conferences
-      </h2>
-      <div class="talks-grid">
-        <a href="https://www.linkedin.com/posts/ai-geeks-chennai_ai-geeks-meetup-6-luma-activity-7380924542661267456-Rlhk" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="https://img.youtube.com/vi/q-Y44dh6sTo/mqdefault.jpg" alt="AI Geeks Meetup" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>Research → Code → PR: Practical iOS with Cursor IDE</h4>
-            <div class="talk-detail">
-              <span class="talk-event">AI Geeks Meetup #6</span>
-              <span class="talk-location"><i class="fas fa-map-marker-alt"></i> Chennai</span>
-              <span class="talk-date">Oct 2025</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/sabapathy7_cursoride-iosdevelopment-ai-activity-7384453976500498433-u6xP" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="img/ssn-college-talk.jpg" alt="Frontiers of Intelligence — SSN College" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>Product Deployment: Research Paper → iOS Code → Pull Request</h4>
-            <div class="talk-detail">
-              <span class="talk-event">Frontiers of Intelligence — SSN College</span>
-              <span class="talk-location"><i class="fas fa-map-marker-alt"></i> Chennai</span>
-              <span class="talk-date">Sep 2025</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/swiftbengaluru_swiftbengaluru-aiindevelopment-speakerspotlight-activity-7330838931766161408-iICK" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="img/ai-dev-talk.jpg" alt="AI in Development — Swift Developers Meetup" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>AI in Development — Hype, Myth, or Actually Works?</h4>
-            <div class="talk-detail">
-              <span class="talk-event">Swift Devs @ Motive</span>
-              <span class="talk-location"><i class="fas fa-map-marker-alt"></i> Bengaluru</span>
-              <span class="talk-date">May 2025</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://youtu.be/NdyhdtKhUlc?si=wyMsdVBTqM5tEQTN" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="https://img.youtube.com/vi/NdyhdtKhUlc/mqdefault.jpg" alt="AI-Driven Pull Requests" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>AI-Driven Pull Requests: Smarter Reviews, Faster Merges</h4>
-            <div class="talk-detail">
-              <span class="talk-event">Apple Developers Club</span>
-              <span class="talk-location"><i class="fas fa-video"></i> Online</span>
-              <span class="talk-date">Apr 2025</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/swiftsurat_swiftsurat-swiftcommunity-iosdevelopment-activity-7321880977306279939-l6O2" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="img/swift-surat.jpg" alt="SwiftSurat Meetup — A Guide to Swift Concurrency" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>A Guide to Swift Concurrency</h4>
-            <div class="talk-detail">
-              <span class="talk-event">SwiftSurat Online</span>
-              <span class="talk-location"><i class="fas fa-video"></i> Online</span>
-              <span class="talk-date">Apr 2025</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://youtu.be/9MMzZncgzEE?si=nn_NnYGAWc4HOmXD" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="https://img.youtube.com/vi/9MMzZncgzEE/mqdefault.jpg" alt="Swift Concurrency SwiftBLR" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>A Guide to Swift Concurrency</h4>
-            <div class="talk-detail">
-              <span class="talk-event">SwiftBLR</span>
-              <span class="talk-location"><i class="fas fa-map-marker-alt"></i> Bengaluru</span>
-              <span class="talk-date">Aug 2024</span>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/sabapathy7_meetup-swiftbengaluru-swiftui-activity-7105828619142234112-7gYa/" target="_blank" rel="noopener" class="talk-card reveal">
-          <img src="img/tca-talk.jpg" alt="Getting Started with TCA — SwiftBLR" class="talk-thumb" loading="lazy">
-          <div class="talk-info">
-            <h4>Getting Started with TCA</h4>
-            <div class="talk-detail">
-              <span class="talk-event">SwiftBLR</span>
-              <span class="talk-location"><i class="fas fa-map-marker-alt"></i> Bengaluru</span>
-              <span class="talk-date">Sep 2023</span>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="talks-cta reveal">
-        <a href="https://sessionize.com/sabapathy7" target="_blank" rel="noopener" class="btn btn-outline">
-          <span>View All on Sessionize</span>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION (hidden — uncomment to re-enable)
-  <section class="projects section" id="projects">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="title-number">.</span> Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card reveal"><div class="project-icon"><i class="fas fa-university"></i></div><div class="project-content"><h3>App Banco Sabadell</h3><p>Enterprise banking applications — scalable financial solutions with robust data management.</p><div class="project-tech"><span>Swift</span><span>Objective-C</span><span>UIKit</span></div></div><div class="project-domain">Banking</div></div>
-        <div class="project-card reveal"><div class="project-icon"><i class="fas fa-heartbeat"></i></div><div class="project-content"><h3>Instrument Set Tracker</h3><p>Real-time BLE data capture pipeline — concurrent data streams from multiple IoT sensors.</p><div class="project-tech"><span>Swift</span><span>SwiftUI</span><span>CoreBluetooth</span></div></div><div class="project-domain">Healthcare</div></div>
-        <div class="project-card reveal"><div class="project-icon"><i class="fas fa-utensils"></i></div><div class="project-content"><h3>Q Host / Q Waitlist</h3><p>Restaurant waitlist management — MapKit, Core Data, and custom BezierPath drawing.</p><div class="project-tech"><span>Swift</span><span>UIKit</span><span>MapKit</span></div></div><div class="project-domain">Hospitality</div></div>
-      </div>
-    </div>
-  </section>
-  END PROJECTS SECTION -->
-
-  <section class="community section" id="community">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">06.</span> Community & Speaking
-      </h2>
-      <div class="community-grid">
-        <a href="https://www.youtube.com/watch?v=q-Y44dh6sTo" target="_blank" rel="noopener" class="community-card featured reveal">
-          <div class="community-icon"><i class="fas fa-microphone-alt"></i></div>
-          <div class="community-badge">Featured</div>
-          <h3>Do-iOS Conference, Netherlands</h3>
-          <p>Invited as a conference speaker to present a talk on <strong>Swift Concurrency 6.2</strong> at the international Do-iOS Developer Conference.</p>
-          <span class="community-tag">Conference Speaker</span>
-        </a>
-        <a href="https://www.meetup.com/SwiftBengaluru/" target="_blank" rel="noopener" class="community-card reveal">
-          <div class="community-icon"><i class="fas fa-users"></i></div>
-          <h3>SwiftBLR Meetup Co-organizer</h3>
-          <p>Co-organizing the <strong>Swift, Bengaluru (SwiftBLR)</strong> meetup — bringing together iOS developers for knowledge sharing.</p>
-          <span class="community-tag">Meetup Co-organizer</span>
-        </a>
-        <a href="https://youtu.be/NdyhdtKhUlc?si=wyMsdVBTqM5tEQTN" target="_blank" rel="noopener" class="community-card reveal">
-          <div class="community-icon"><i class="fas fa-robot"></i></div>
-          <h3>AI-Powered Development Talks</h3>
-          <p>Workshops on <strong>Figma to SwiftUI</strong>, <strong>Research Paper to iOS App</strong>, and <strong>AI-Powered Pull Requests</strong>.</p>
-          <span class="community-tag">Tech Talks</span>
-        </a>
-        <a href="https://www.linkedin.com/posts/sabapathy7_meetup-swiftbengaluru-swiftui-activity-7105828619142234112-7gYa/" target="_blank" rel="noopener" class="community-card reveal">
-          <div class="community-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h3>Guest Speaker at AiDash</h3>
-          <p>Invited to present on <strong>Getting Started with The Composable Architecture (TCA)</strong>.</p>
-          <span class="community-tag">Guest Speaker</span>
-        </a>
-        <a href="https://medium.com/@sabapathy7" target="_blank" rel="noopener" class="community-card reveal">
-          <div class="community-icon"><i class="fas fa-blog"></i></div>
-          <h3>Technical Writing</h3>
-          <p>Publishing articles on <strong>Medium</strong> and <strong>Swift Published</strong> to share knowledge.</p>
-          <span class="community-tag">Blogger</span>
-        </a>
-        <a href="https://www.youtube.com/@SwiftPublished" target="_blank" rel="noopener" class="community-card reveal">
-          <div class="community-icon"><i class="fas fa-podcast"></i></div>
-          <h3>SwiftPublished Podcast</h3>
-          <p>Hosting the <strong>SwiftPublished</strong> podcast discussing Swift development and community insights.</p>
-          <span class="community-tag">Podcast Host</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="social section" id="social">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">07.</span> Find Me Online
-      </h2>
-      <div class="social-grid">
-        <a href="https://linkedin.com/in/sabapathy7" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fab fa-linkedin-in"></i>
-          <span class="social-name">LinkedIn</span>
-          <span class="social-handle">@Sabapathy7</span>
-        </a>
-        <a href="https://github.com/sabapathy7" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fab fa-github"></i>
-          <span class="social-name">GitHub</span>
-          <span class="social-handle">@sabapathy7</span>
-        </a>
-        <a href="https://medium.com/@sabapathy7" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fab fa-medium-m"></i>
-          <span class="social-name">Medium</span>
-          <span class="social-handle">@Sabapathy7</span>
-        </a>
-        <a href="https://sessionize.com/sabapathy7" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fas fa-calendar-check"></i>
-          <span class="social-name">Sessionize</span>
-          <span class="social-handle">My Talks</span>
-        </a>
-        <a href="https://www.youtube.com/@SwiftPublished" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fab fa-youtube"></i>
-          <span class="social-name">YouTube</span>
-          <span class="social-handle">Podcast Host</span>
-        </a>
-        <a href="https://x.com/sabapathytr7" target="_blank" rel="noopener" class="social-card reveal">
-          <i class="fab fa-x-twitter"></i>
-          <span class="social-name">X / Twitter</span>
-          <span class="social-handle">@sabapathytr7</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact section" id="contact">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-number">08.</span> Get In Touch
-      </h2>
-      <div class="contact-content reveal">
-        <p class="contact-text">
-          I'm currently open to new opportunities and always excited to discuss
-          iOS development, Swift, or community initiatives. Whether you have a
-          question or just want to say hello — my inbox is always open!
-        </p>
-        <div class="contact-methods">
-          <a href="mailto:iostechsaba7@gmail.com" class="contact-method">
-            <i class="fas fa-envelope"></i>
-            <span>iostechsaba7@gmail.com</span>
-          </a>
-          <a href="https://linkedin.com/in/sabapathy7" target="_blank" rel="noopener" class="contact-method">
-            <i class="fab fa-linkedin-in"></i>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-        <a href="mailto:iostechsaba7@gmail.com" class="btn btn-primary btn-lg">
-          <span>Say Hello</span>
-          <i class="fas fa-paper-plane"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>Designed & Built by Kanagasabapathy Rajkumar</p>
-        <div class="footer-links">
-          <a href="https://github.com/sabapathy7" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/sabapathy7" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://medium.com/@sabapathy7" target="_blank" rel="noopener"><i class="fab fa-medium-m"></i></a>
-          <a href="https://www.youtube.com/@SwiftPublished" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-        </div>
+      <div class="footer-links">
+        <a href="mailto:iostechsaba7@gmail.com">iostechsaba7@gmail.com</a>
+        <a href="https://linkedin.com/in/sabapathy7" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sabapathy7" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://sessionize.com/sabapathy7" target="_blank" rel="noopener">Sessionize</a>
+        <a href="https://medium.com/@sabapathy7" target="_blank" rel="noopener">Medium</a>
+        <a href="https://www.youtube.com/@SwiftPublished" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
   </footer>
-
-  <div class="chip-tooltip" id="chipTooltip"></div>
 
   <script src="script.js"></script>
 </body>
