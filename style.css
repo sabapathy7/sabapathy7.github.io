@@ -107,13 +107,29 @@ a:hover { text-decoration: underline; }
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 48px;
-  align-items: center;
+  gap: 40px;
+  align-items: start;
 }
 .hero-left {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+}
+.hero-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+.hero-copy {
+  display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
 }
 .badge {
   display: inline-flex;
