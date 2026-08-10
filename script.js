@@ -42,21 +42,60 @@ document.addEventListener('DOMContentLoaded', () => {
       .trim()
       .slice(0, 100);
 
-  // PDF download
-  document.querySelectorAll('a[download], a.btn-pdf').forEach(link => {
-    link.addEventListener('click', () => {
+  // Download PDF — GA4 recommended event: file_download
+  // (also fired via inline onclick on #downloadPdf as a backup)
+  const pdfBtn = document.getElementById('downloadPdf');
+  if (pdfBtn) {
+    pdfBtn.addEventListener('click', () => {
+      track('file_download', {
+        file_name: pdfBtn.getAttribute('download') || 'Kanagasabapathy_Rajkumar_iOSDeveloper.pdf',
+        file_extension: 'pdf',
+        link_text: 'Download PDF',
+        link_url: pdfBtn.href,
+      });
       track('pdf_download', {
-        file_name: link.getAttribute('download') || 'resume.pdf',
-        link_url: link.href,
+        file_name: pdfBtn.getAttribute('download') || 'Kanagasabapathy_Rajkumar_iOSDeveloper.pdf',
+        link_url: pdfBtn.href,
+      });
+    });
+  }
+
+  // Section nav + CTA clicks (data-ga tags)
+  document.querySelectorAll('[data-ga]').forEach(el => {
+    if (el.id === 'downloadPdf') return; // handled above
+    el.addEventListener('click', () => {
+      const eventName = el.getAttribute('data-ga');
+      track(eventName, {
+        section: el.getAttribute('data-ga-section') || undefined,
+        link_text: linkLabel(el),
+        link_url: el.getAttribute('href') || undefined,
       });
     });
   });
 
-  // Outbound / mailto / internal CTA clicks
+  // Section views — once per section when it enters the viewport
+  const seenSections = new Set();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id || seenSections.has(id)) return;
+        seenSections.add(id);
+        track('section_view', { section: id });
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  // Outbound / mailto clicks
   document.querySelectorAll('a[href]').forEach(link => {
     link.addEventListener('click', () => {
       const href = link.getAttribute('href') || '';
       if (!href || href.startsWith('#')) return;
+      if (link.id === 'downloadPdf' || link.classList.contains('btn-pdf')) return;
 
       if (href.startsWith('mailto:')) {
         track('contact_click', {
@@ -66,17 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Skip PDF (already tracked above)
-      if (link.hasAttribute('download') || link.classList.contains('btn-pdf')) return;
-
       try {
         const url = new URL(href, window.location.origin);
-        const isOutbound = url.origin !== window.location.origin;
-        if (!isOutbound) {
-          // In-page CTA (e.g. Get in Touch → #contact is handled by hash skip;
-          // same-origin non-hash links if any)
-          return;
-        }
+        if (url.origin === window.location.origin) return;
 
         let category = 'outbound';
         if (url.hostname.includes('github.com')) category = 'github';
@@ -94,17 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (_) {
         // ignore malformed hrefs
       }
-    });
-  });
-
-  // Primary CTAs (hash links that matter)
-  document.querySelectorAll('.btn-primary, .btn-ghost, .link-more').forEach(link => {
-    link.addEventListener('click', () => {
-      const href = link.getAttribute('href') || '';
-      track('cta_click', {
-        link_text: linkLabel(link),
-        link_url: href,
-      });
     });
   });
 
