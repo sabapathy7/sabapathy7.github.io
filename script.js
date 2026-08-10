@@ -74,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Section views — once per section when it enters the viewport
+  // (includes in-page blocks like #experience that are not <section> tags)
+  const viewTargets = document.querySelectorAll(
+    '#hero, #about, #experience, #skills, #packages, #talks, #articles, #contact'
+  );
   const seenSections = new Set();
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -85,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
         track('section_view', { section: id });
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.25 });
 
-    sections.forEach(section => observer.observe(section));
+    viewTargets.forEach(section => observer.observe(section));
   }
 
   // Outbound / mailto clicks
